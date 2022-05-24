@@ -11,7 +11,7 @@
 <title>메인 페이지</title> 
 </head>
 <body>
-	<jsp:include page="main-index.jsp" flush="false"/>
+<div><jsp:include page="main-index.jsp" flush="false"/></div>
   <div class="main">
     <div class="content-wrap">
       <div class="content-left">
