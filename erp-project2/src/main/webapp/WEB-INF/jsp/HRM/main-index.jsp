@@ -14,7 +14,7 @@
 		<nav class="clearfix">
 			<ul class="clearfix">
 				<li><a href="main-calendar.do">홈</a></li>
-				<li><a href="user-inquiry.do">인사관리</a></li> 
+				<li><a href="user-index.do">인사관리</a></li> 
 				<li><a href="payroll-deduction.do">급여관리</a></li>
 				<li><a href="attendance-inquiry.do">근태관리</a></li>
 			</ul>
