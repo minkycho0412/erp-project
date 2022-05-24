@@ -25,10 +25,10 @@
 		가족정보: ${info} <br>
 		
 		<!-- 사원 정보 변경 페이지로 이동 -->
-		<button id="modify"><a href="/erp-project/user-registration.do">수정하기</a></button>
+		<button id="modify"><a href="user-registration.do">수정하기</a></button>
 		
 		<!-- 인사 조회 페이지로 이동 -->
-		<button id="confirm"><a href="/erp-project/user-inquiry.do">확인</a></button>
+		<button id="confirm"><a href="user-inquiry.do">확인</a></button>
 		<button id="print">출력</button>
 	</fieldset>
 </body>

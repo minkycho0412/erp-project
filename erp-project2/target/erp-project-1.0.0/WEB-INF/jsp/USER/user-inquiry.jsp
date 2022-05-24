@@ -58,7 +58,7 @@
 		<td><br></td>
 		<td><br></td>
 		<td><br></td>
-		<td><a href="/erp-project/user-personal-record.do">보기</a></td>
+		<td><a href="user-personal-record.do">보기</a></td>
 	</tr>
 	
 	<tr>

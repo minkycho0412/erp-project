@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@ page import="java.sql.*" errorPage="/erp-project/error.do"%>
+        <%@ page import="java.sql.*" errorPage="error.do"%>
 <!DOCTYPE html>
 <% 
 	request.setCharacterEncoding("UTF-8"); 
@@ -16,5 +16,5 @@
 %>
 <script>
 alert("반갑습니다. 로그인 화면으로 이동합니다.");
-location.href="/erp-project/login.do";
+location.href="login.do";
 </script>

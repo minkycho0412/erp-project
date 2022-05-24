@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" errorPage="/erp-project/error.do"%>
+    <%@ page import="java.sql.*" errorPage="error.do"%>
 <!DOCTYPE html>
 <% 
 request.setCharacterEncoding("UTF-8"); 
@@ -19,16 +19,16 @@ if(rs1.next()) {
 	session.setAttribute("id", id);
 	if(rs2.next()){
 		session.setAttribute("pw", pw);
-		response.sendRedirect("/erp-project/main-calendar.do");//로그인 성공 연결 페이지
+		response.sendRedirect("main-calendar.do");//로그인 성공 연결 페이지
 	} else { %>
 	<script>
 	alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
-	location.href="/erp-project/login.do";
+	location.href="login.do";
 	</script> <%
 	}
 } else { %>
 	<script>
 	alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
-	location.href="/erp-project/login.do";
+	location.href="login.do";
 	</script> <% 
 } %>

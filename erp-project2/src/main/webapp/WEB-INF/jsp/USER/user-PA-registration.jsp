@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>인사 발령 등록</h2>
-	<form method="post" action="/erp-project/user-PA-registration-success.do">
+	<form method="post" action="user-PA-registration-success.do">
 		사원코드: <input type="text" name="uno"><p>
 		사원명: <input type="text" name="uname"><p>
 		발령구분: <input type="text" name="pa"><p>

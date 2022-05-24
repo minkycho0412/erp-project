@@ -10,7 +10,7 @@
 	<fieldset>
 		<h2>사원 신규 등록</h2>
 		<br />
-		<form action="/erp-project/user-personal-record.do" method="post">
+		<form action="user-personal-record.do" method="post">
 			<!-- required 전체에 추가하기 -->
 			<label for="uno">사원번호: </label> 
 			<input type="text" name="uno" />
@@ -58,7 +58,7 @@
 			<br><br>
 			<input type="submit" value="등록하기"/> &nbsp;
 			<input type="reset" value="초기화"/>
-			<a href="/erp-project/user-inquiry.do">돌아가기</a>
+			<a href="user-inquiry.do">돌아가기</a>
 		</form>
 	</fieldset>
 </body>

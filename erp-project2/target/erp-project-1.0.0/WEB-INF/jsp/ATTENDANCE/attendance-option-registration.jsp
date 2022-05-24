@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>근태 항목 등록</h2>
-	<form method="post" action="/erp-project/attendance-option-registration-success.do">
+	<form method="post" action="attendance-option-registration-success.do">
 	휴가명: <input type="text" name="rname"><p>
 	사용 기간: <input type="date" name="adate1">
 	~ <input type="date" name="adate2"><p>

@@ -9,13 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HrmController {
-
-	// 테스트
-	@RequestMapping(value="/test.do")
-	public String test(HttpServletRequest request, ModelMap model) {
-		
-		return "HRM/test";
-	}
 	
 	// 로그인
 	@RequestMapping(value="/login.do")
@@ -43,6 +36,13 @@ public class HrmController {
 	public String signupSuccess(HttpServletRequest request, ModelMap model) {
 		
 		return "HRM/signup-success";
+	}
+	
+	// 메인 인덱스
+	@RequestMapping(value="/main-index.do")
+	public String mainIndex(HttpServletRequest request, ModelMap model) {
+		
+		return "HRM/main-index";
 	}
 	
 	// 메인 페이지
