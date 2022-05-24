@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
+	
+	// 인사 인덱스 
+			@RequestMapping(value="/user-index.do")
+			public String userIndex(HttpServletRequest request, ModelMap model) {
+				
+				return "USER/user-index";
+			}
 
 	// 인사 조회
 		@RequestMapping(value="/user-inquiry.do")

@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>사원 신규 등록</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
+	<jsp:include page="user-index.jsp" flush="true"/>
+	<br><br><br><br>
 	<fieldset>
 		<h2>사원 신규 등록</h2>
 		<br />

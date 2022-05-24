@@ -9,7 +9,7 @@
 	String sql = "insert into login values('"+id+"','"+pw+"')";
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection
-	("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "1234");
+	("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
 	Statement stmt = conn.createStatement(); 
 	stmt.executeUpdate(sql); 
 	session.invalidate();
