@@ -1,18 +1,22 @@
 package erp.hrm.web;
 
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class HrmController {
 
+	// 테스트
+	@RequestMapping(value="/test.do")
+	public String test(HttpServletRequest request, ModelMap model) {
+		
+		return "HRM/test";
+	}
+	
 	// 로그인
 	@RequestMapping(value="/login.do")
 	public String login(HttpServletRequest request, ModelMap model) {
