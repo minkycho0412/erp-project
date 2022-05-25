@@ -9,7 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PayrollController {
 
+	// 급여 조회
+	@RequestMapping(value="/payroll-inquiry.do")
+	public String payrollInquiry(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-inquiry";
+	      
+	}
 
+	// 지급 총액 상세
+	@RequestMapping(value="/payroll-payment.do")
+	public String Payment(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-payment";
+	      
+	}
+	
 	// 공제 총액 상세
 	@RequestMapping(value="/payroll-deduction.do")
 	public String Deduction(HttpServletRequest request, ModelMap model) {
