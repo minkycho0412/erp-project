@@ -9,6 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PayrollController {
 
+	
+	// 지급 총액 상세
+	@RequestMapping(value="/payroll-payment.do")
+	public String Payment(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-payment";
+	      
+	}
 
 	// 공제 총액 상세
 	@RequestMapping(value="/payroll-deduction.do")

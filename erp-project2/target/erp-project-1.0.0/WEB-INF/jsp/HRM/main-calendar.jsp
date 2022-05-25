@@ -7,21 +7,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/HRM/main.css'/>"/>
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/HRM/index.css'/>"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <title>메인 페이지</title> 
 </head>
 <body>
-	<div class="menu" >
-		<nav class="clearfix">
-			<ul class="clearfix">
-				<li><a href="main-calendar.do">홈</a></li>
-				<li><a href="user-index.do">인사관리</a></li> 
-				<li><a href="payroll-deduction.do">급여관리</a></li>
-				<li><a href="attendance-inquiry.do">근태관리</a></li>
-			</ul>
-		</nav>
-	</div>
+
+	<jsp:include page="main-index.jsp" flush="true"/>
 	<div class="main">
 		<div class="content-wrap">
 			<div class="content-left">
