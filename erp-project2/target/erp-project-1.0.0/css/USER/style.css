@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body {
+	margin:0;
+	background-color:#F6F6F6;
+}
+
+
+table, td, th {
+	border : 2px solid black;
+	border-collapse : collapse;
+	text-align:center;
+};
+
+.contents {
+	position: relative;
+}
