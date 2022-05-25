@@ -10,7 +10,7 @@ String sql1 = "select * from login where id = '" + id + "'";
 String sql2 = "select * from login where pw = '" + pw + "'";
 Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "1234");
+("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
 Statement cre1 = conn.createStatement();
 Statement cre2 = conn.createStatement(); 
 ResultSet rs1 = cre1.executeQuery(sql1);
