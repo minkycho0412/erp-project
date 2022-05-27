@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" errorPage="error.do"%>
+<%@ page import="java.sql.*" errorPage="error.do"%>
 <!DOCTYPE html>
 <% 
 request.setCharacterEncoding("UTF-8"); 
