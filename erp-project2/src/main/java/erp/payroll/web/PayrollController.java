@@ -49,6 +49,14 @@ public class PayrollController {
 	      
 	}
 	
+	// 초과 근무 입력 삽입
+	@RequestMapping(value="/payroll-overtime-registration-insert.do")
+	public String OvertimeRegistrationInsert(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-overtime-registration-insert";
+	      
+	}
+	
 	// 사원별 기본급 입력
 	@RequestMapping(value="/payroll-user-basepay-registration.do")
 	public String userBasepayRegistration(HttpServletRequest request, ModelMap model) {
