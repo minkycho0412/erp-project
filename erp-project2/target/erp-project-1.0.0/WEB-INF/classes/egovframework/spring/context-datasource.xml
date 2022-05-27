@@ -23,7 +23,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/erp" />
         <property name="username" value="root"/>
-        <property name="password" value="ch130381_M"/>
+        <property name="password" value="1234"/>
     </bean>
    
     

@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<% 
+request.setCharacterEncoding("UTF-8"); 
+String url = "jdbc:mysql://localhost:3306/erp";
+String uid = "root"; String pass = "ch130381_M";
+String sql = "SELECT U.uname, B.salary, S.* FROM user U, base B, salary S WHERE U.uno = S.salary_uno AND B.sno = S.salary_sno";
+try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection conn = DriverManager.getConnection(url, uid, pass);
+	Statement stmt = conn.createStatement();
+	ResultSet rs = stmt.executeQuery(sql);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +26,10 @@
 </style>
 </head>
 <body>
+	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<h3>지급 총액 상세 정보</h3>
-	2022년 3월
+	<% if(rs.next()) { 
+	out.println(rs.getString("month") + "월"); %>
 	<table width="1100">
 		<tr>
 			<th>사원명</th>
@@ -36,23 +50,30 @@
 			
 		</tr>
 		
-		<tr>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-			<td><br></td>
-		</tr>
+		<%
+		
+			out.println("<tr>");
+			out.println("<td>" + rs.getString("uname") + "</td>");
+			out.println("<td>" + rs.getString("salary") + "</td>");			 
+			out.println("<td>" + rs.getString("food") + "</td>");
+			out.println("<td>" + rs.getString("vehicle") + "</td>");
+			out.println("<td>" + rs.getString("overtime") + "</td>");
+			out.println("<td>" + rs.getString("overnight") + "</td>");
+			out.println("<td>" + rs.getString("overwork") + "</td>");
+			out.println("<td>" + rs.getString("weekend") + "</td>");
+			out.println("<td>" + rs.getString("night") + "</td>");
+			out.println("<td>" + rs.getString("position") + "</td>");
+			out.println("<td>" + rs.getString("maternity") + "</td>");
+			out.println("<td>" + rs.getString("tardy") + "</td>");
+			out.println("<td>" + rs.getString("early") + "</td>");
+			out.println("<td>" + rs.getString("variable") + "</td>");
+			out.println("<td>" + rs.getString("ptotal") + "</td>");
+			out.println("</tr>");
+		}
+		%>
 	</table>
+<%	} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage());
+}
+%>
 </body>
 </html>
