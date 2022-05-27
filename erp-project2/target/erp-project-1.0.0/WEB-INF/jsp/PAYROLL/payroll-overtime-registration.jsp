@@ -7,9 +7,10 @@
 <title>초과 근무 입력</title>
 </head>
 <body>
+	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<fieldset>
 		<h2>초과 근무 등록</h2>
-		<form action="" method="post">
+		<form action="payroll-overtime-registration-insert.do" method="post">
 		
 			<label for="uno">사원번호: </label>
 			<input type="text" name="uno" /><br>

@@ -28,8 +28,7 @@
 				<input type="text" name="pname" /><br>
 				<label for="joindate">입사일: </label>
 				<input type="date" name="startdate" /> 부터
-				<input type="date" name="enddate" /> 까지
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				<input type="date" name="enddate" /> 까지 <br>
 				<input type="submit" value="조회"/>
 			</form>
 			<% String dname = request.getParameter("dname");
