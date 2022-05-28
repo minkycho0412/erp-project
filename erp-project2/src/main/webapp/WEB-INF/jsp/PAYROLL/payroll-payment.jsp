@@ -6,7 +6,7 @@
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp";
 String uid = "root"; String pass = "ch130381_M";
-String sql = "SELECT U.uname, B.salary, S.* FROM user U, base B, salary S WHERE U.uno = S.salary_uno AND B.sno = S.salary_sno";
+String sql = "SELECT U.uname, FORMAT(B.salary, 0) AS f_salary, S.* FROM user U, base B, salary S WHERE U.uno = S.salary_uno AND B.sno = S.salary_sno";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
@@ -24,7 +24,8 @@ try {
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<h3>지급 총액 상세 정보</h3>
 	<% if(rs.next()) { 
-	out.println(rs.getString("month") + "월"); %>
+		out.println(rs.getString("year") + "년");
+		out.println(rs.getString("month") + "월"); %>
 	<table width="1100">
 		<tr>
 			<th>사원명</th>
@@ -46,10 +47,9 @@ try {
 		</tr>
 		
 		<%
-		
 			out.println("<tr>");
 			out.println("<td>" + rs.getString("uname") + "</td>");
-			out.println("<td>" + rs.getString("salary") + "</td>");			 
+			out.println("<td>" + rs.getString("f_salary") + "</td>");			 
 			out.println("<td>" + rs.getString("food") + "</td>");
 			out.println("<td>" + rs.getString("vehicle") + "</td>");
 			out.println("<td>" + rs.getString("overtime") + "</td>");

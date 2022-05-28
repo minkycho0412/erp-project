@@ -24,7 +24,8 @@ try {
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<h3>공제 총액 상세 정보</h3>
 	<% if(rs.next()) { 
-	out.println(rs.getString("month") + "월"); %>
+		out.println(rs.getString("year") + "년");
+		out.println(rs.getString("month") + "월"); %>
 	<table width="900">
 		<tr>
 			<th>사원명</th>
