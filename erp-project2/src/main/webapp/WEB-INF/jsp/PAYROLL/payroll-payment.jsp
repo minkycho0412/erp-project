@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*"%>
 <% 
 request.setCharacterEncoding("UTF-8"); 
@@ -17,13 +18,7 @@ try {
 <head>
 <meta charset="UTF-8">
 <title>지급 총액 상세 정보</title>
-<style>
-	table, td, th {
-		border : 2px solid black;
-		border-collapse : collapse;
-		text-align:center;
-	};
-</style>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>

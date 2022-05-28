@@ -7,12 +7,6 @@
 <meta charset="UTF-8">
 <title>인사관리 인덱스</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/index.css'/>"/>
-<style>
-	body {
-		margin:0;
-		background-color:#F6F6F6;
-	}
-</style>
 </head>
 
 <body>

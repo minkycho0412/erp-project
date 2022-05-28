@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>근태 항목 등록</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
-<h2>근태 항목 등록</h2>
+	<jsp:include page="attendance-index.jsp" flush="true"/>
+	<h2>근태 항목 등록</h2>
 	<form method="post" action="attendance-option-registration-success.do">
 	휴가명: <input type="text" name="rname"><p>
 	사용 기간: <input type="date" name="adate1">

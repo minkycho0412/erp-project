@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>근태(휴가) 조회</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <% String search_name; %>
 <body>
+	<jsp:include page="attendance-index.jsp" flush="true"/>
 	<h2>근태(휴가) 조회</h2>
 	<form method="post">
 		검색 필터:

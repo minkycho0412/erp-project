@@ -9,6 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PayrollController {
 
+	// 급여관리 인덱스
+	@RequestMapping(value="/payroll-index.do")
+	public String payrollIndex(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-index";
+	      
+	}
+	
 	// 급여 조회
 	@RequestMapping(value="/payroll-inquiry.do")
 	public String payrollInquiry(HttpServletRequest request, ModelMap model) {

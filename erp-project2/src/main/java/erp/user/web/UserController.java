@@ -81,6 +81,13 @@ public class UserController {
 		return "USER/user-registration";
 	}
 	
+	// 인사 발령 조회
+	@RequestMapping(value="/user-PA-inquiry.do")
+	public String PAinquiry(HttpServletRequest request, ModelMap model) {
+		
+		return "USER/user-PA-inquiry";
+	}
+	
 	// 인사 발령 등록
 	@RequestMapping(value="/user-PA-registration.do")
 	public String PAregistration(HttpServletRequest request, ModelMap model) {

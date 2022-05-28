@@ -8,10 +8,12 @@
 </head>
 <body>
 	<form method="post" action="login-check.do">
-	ID: <input type="text" name="id"><p>
-	PW: <input type="password" name="pw"><p>
-	<input type="submit" value="로그인">
+		<label for="id">ID: </label>
+		<input type="text" name="id" required/><br>
+		<label for="id">PW: </label>
+		<input type="password" name="pw" required/><br>
+		<input type="submit" value="로그인">
 	</form>
-	<a href="signup.do">회원가입
+	<a href="signup.do">회원가입</a>
 </body>
 </html>
