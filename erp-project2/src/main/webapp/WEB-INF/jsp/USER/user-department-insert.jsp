@@ -10,9 +10,9 @@ String lowdno = request.getParameter("lowdno");
 String lowdname = request.getParameter("lowdname");
 
 
-Class.forName("com.mysql.jdbc.Driver");
+Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
+("jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Q1w2e3r4!");
 Statement stmt = conn.createStatement(); 
 
 String sql = "insert into dept values('" + dno + "','" + dname + "','" + 

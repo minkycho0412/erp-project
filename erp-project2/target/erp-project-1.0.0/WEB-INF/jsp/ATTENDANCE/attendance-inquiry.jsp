@@ -4,8 +4,8 @@
 <%@ page import="java.sql.*"%>
 <% 
 request.setCharacterEncoding("UTF-8"); 
-String url = "jdbc:mysql://localhost:3306/erp";
-String uid = "root"; String pass = "ch130381_M";
+String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+String uid = "root"; String pass = "Q1w2e3r4!";
 String sql = "SELECT U.uname, A.* FROM user U, attendance A WHERE U.uno = A.attend_uno";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");

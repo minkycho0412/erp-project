@@ -43,7 +43,7 @@
 <%
 Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
+("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
 Statement cre = conn.createStatement(); 
 ResultSet rs = cre.executeQuery("select * from position order by pno"); 
 %> 

@@ -7,7 +7,7 @@ request.setCharacterEncoding("UTF-8");
 String lowdname = request.getParameter("lowdname");
 String dept="select uno,uname,pname,email from user where lowdname='"+lowdname+"'";
 
-Class.forName("com.mysql.jdbc.Driver");
+Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection
 ("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
 

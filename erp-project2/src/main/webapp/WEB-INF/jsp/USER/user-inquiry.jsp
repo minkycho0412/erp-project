@@ -7,6 +7,17 @@
 <meta charset="UTF-8">
 <title>인사 조회</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
+<link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 </head>
 <body>
 	<jsp:include page="user-index.jsp" flush="true"/>
@@ -37,37 +48,59 @@
 		</fieldset>
 		<br><br>
 		
-		<table width="700">
-			<tr>
-				<th>사원번호</th>
-				<th>사원명</th>
-				<th>부서</th>
-				<th>직급</th>
-				<th>입사일</th>
-				<th>이메일</th>
-				<th>인사카드</th>
-			</tr>
-			
-			<tr>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><a href="user-personal-record.do">보기</a></td>
-			</tr>
-			
-			<tr>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-		</table>
-	</div>
+		
+	<section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-wrap" width="700">
+              <table class="table">
+                <thead class="thead-dark">
+						<tr class="alert" role="alert">
+							<th>사원번호</th>
+							<th>사원명</th>
+							<th>부서</th>
+							<th>직급</th>
+							<th>입사일</th>
+							<th>이메일</th>
+							<th>인사카드</th>
+						</tr>
+					</thead>
+                	<tbody>
+						<tr class="alert" role="alert">
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><a href="user-personal-record.do">보기</a></td>
+						</tr>
+						
+						<tr class="alert" role="alert">
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+							<td><br></td>
+						</tr>
+					</tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+   	</div>
+    </section>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <%@ page import="java.sql.*"%>
 <% 
 request.setCharacterEncoding("UTF-8"); 
-String url = "jdbc:mysql://localhost:3306/erp";
-String uid = "root"; String pass = "ch130381_M";
+String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+String uid = "root"; String pass = "Q1w2e3r4!";
 String salary = request.getParameter("salary");
 String sql = "UPDATE base set salary=? WHERE base_uno='0202103'";
 try {
