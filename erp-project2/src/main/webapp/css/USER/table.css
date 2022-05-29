@@ -8163,9 +8163,6 @@ h1, h2, h3, h4, h5,
 .bg-primary {
   background: #1089ff !important; }
 
-.ftco-section {
-  padding: 7em 0; }
-
 .ftco-no-pt {
   padding-top: 0; }
 
@@ -8191,7 +8188,6 @@ h1, h2, h3, h4, h5,
   border-spacing: 0 10px; }
   .table thead th {
     border: none;
-    padding: 30px;
     font-size: 14px;
     color: #fff; }
   .table tbody tr {
@@ -8201,7 +8197,6 @@ h1, h2, h3, h4, h5,
     box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
   .table tbody th, .table tbody td {
     border: none;
-    padding: 30px;
     font-size: 14px;
     background: #fff; }
   .table tbody td .close span {
