@@ -30,9 +30,9 @@
 		<% String dname = request.getParameter("dname");
 		String pname = request.getParameter("pname");
 	 	%>
-	</fieldset>
-	<br><br>
+	</fieldset><br><br>
 	
+	<p>*지급 내역과 공제 내역의 상세정보를 확인하시려면, 해당 금액을 클릭해주세요.</p>
 	<table width="700">
 		<tr>
 			<th>귀속연월</th>

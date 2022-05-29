@@ -33,6 +33,14 @@ public class AttendanceController {
 	      
 	}
 	
+	// 근태(휴가) 등록 삽입
+	@RequestMapping(value="/attendance-registration-insert.do")
+	public String attendanceRegistrationInsert(HttpServletRequest request, ModelMap model) {
+	      
+		return "ATTENDANCE/attendance-registration-insert";
+	      
+	}
+	
 	// 근태 항목 등록
 	@RequestMapping(value="/attendance-option-registration.do")
 	public String optionRegistration(HttpServletRequest request, ModelMap model) {

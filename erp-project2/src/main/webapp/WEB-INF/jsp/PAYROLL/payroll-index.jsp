@@ -15,8 +15,6 @@
 			<ul class="clearfix">
 				<li><a href="main-calendar.do">홈</a></li>
 				<li><a href="payroll-inquiry.do">급여 조회</a></li>
-				<li><a href="payroll-payment.do">지급 총액 상세</a></li>
-				<li><a href="payroll-deduction.do">공제 총액 상세</a></li>
 				<li><a href="payroll-overtime-inquiry.do">초과 근무 조회</a></li>
 				<li><a href="payroll-overtime-registration.do">초과 근무 입력</a></li>
 				<li><a href="payroll-user-basepay-registration.do">사원별 기본급 입력</a></li>
