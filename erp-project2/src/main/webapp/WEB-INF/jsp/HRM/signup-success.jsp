@@ -4,7 +4,7 @@
 <% 
 	request.setCharacterEncoding("UTF-8"); 
 	String url = "jdbc:mysql://localhost:3306/erp";
-	String uid = "root"; String pass = "0000";
+	String uid = "root"; String pass = "Q1w2e3r4!";
 	String id = request.getParameter("id"); 
 	String pw = request.getParameter("pw");
 	String sql = "INSERT INTO login VALUES(?,?)";

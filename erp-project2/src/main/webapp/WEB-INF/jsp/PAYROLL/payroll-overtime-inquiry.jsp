@@ -5,7 +5,7 @@
 <% 
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp";
-String uid = "root"; String pass = "ch130381_M";
+String uid = "root"; String pass = "Q1w2e3r4!";
 String sql = "SELECT U.uno, U.uname, P.aname, O.odate, O.ohour FROM user U, op P, overtime O WHERE U.uno = O.overtime_uno AND P.ano = O.overtime_ano AND (U.uno=? OR U.uname=?)";
 try {
 	Class.forName("com.mysql.jdbc.Driver");
