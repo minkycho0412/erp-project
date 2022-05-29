@@ -5,7 +5,7 @@
 <% 
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp";
-String uid = "root"; String pass = "ch130381_M";
+String uid = "root"; String pass = "Q1w2e3r4!";
 String sql = "SELECT U.uname, S.* FROM user U, salary S WHERE U.uno = S.salary_uno";
 try {
 	Class.forName("com.mysql.jdbc.Driver");

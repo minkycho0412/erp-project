@@ -13,7 +13,7 @@ String sql = "delete from dept where dno = '"+dno+"' and dname = '"+dname+
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
+("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
 Statement stmt = conn.createStatement(); 
 stmt.executeUpdate(sql);
 %>
