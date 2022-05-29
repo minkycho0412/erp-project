@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PayrollController {
@@ -70,6 +71,14 @@ public class PayrollController {
 	public String userBasepayRegistration(HttpServletRequest request, ModelMap model) {
 	      
 		return "PAYROLL/payroll-user-basepay-registration";
+	      
+	}
+	
+	// 사원별 기본급 입력 업데이트
+	@RequestMapping(value="/payroll-user-basepay-registration-update.do")
+	public String userBasepayRegistrationUpdate(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-user-basepay-registration-update";
 	      
 	}
 	

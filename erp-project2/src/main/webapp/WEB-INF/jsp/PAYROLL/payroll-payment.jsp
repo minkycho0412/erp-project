@@ -23,11 +23,18 @@ try {
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<h3>지급 총액 상세 정보</h3>
-	<% if(rs.next()) { 
+	<% 
+		rs.next();
+		out.println("<p>");
 		out.println(rs.getString("year") + "년");
-		out.println(rs.getString("month") + "월"); %>
-	<table width="1100">
+		out.println(rs.getString("month") + "월");
+		out.println("</p>"); 
+	%>
+	<p>(단위: 원)</p>
+	
+	<table width="1200">
 		<tr>
+			<th>사원번호</th>
 			<th>사원명</th>
 			<th>기본급</th>
 			<th>식대</th>
@@ -48,6 +55,7 @@ try {
 		
 		<%
 			out.println("<tr>");
+			out.println("<td>" + rs.getString("salary_uno") + "</td>");
 			out.println("<td>" + rs.getString("uname") + "</td>");
 			out.println("<td>" + rs.getString("f_salary") + "</td>");			 
 			out.println("<td>" + rs.getString("food") + "</td>");
@@ -64,7 +72,6 @@ try {
 			out.println("<td>" + rs.getString("variable") + "</td>");
 			out.println("<td>" + rs.getString("ptotal") + "</td>");
 			out.println("</tr>");
-		}
 		%>
 	</table>
 <%	} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage());
