@@ -4,11 +4,11 @@
 <%@ page import="java.sql.*"%>
 <% 
 request.setCharacterEncoding("UTF-8"); 
-String url = "jdbc:mysql://localhost:3306/erp";
+String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
 String sql = "SELECT U.uno, U.uname, P.aname, O.odate, O.ohour FROM user U, op P, overtime O WHERE U.uno = O.overtime_uno AND P.ano = O.overtime_ano AND (U.uno=? OR U.uname=?)";
 try {
-	Class.forName("com.mysql.jdbc.Driver");
+	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
 %>

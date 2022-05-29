@@ -8,9 +8,9 @@ String pno = request.getParameter("pno");
 String pname = request.getParameter("pname");
 String sql = "delete from position where pno = '"+pno+"' and pname = '"+pname+"'";
 
-Class.forName("com.mysql.jdbc.Driver");
+Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
+("jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Q1w2e3r4!");
 Statement stmt = conn.createStatement(); 
 stmt.executeUpdate(sql);
 %>
