@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>급여 조회</title>
-<style>
-	table, td, th {
-		border : 2px solid black;
-		border-collapse : collapse;
-		text-align:center;
-	};
-</style>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
+	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<fieldset>
 		<h2>Search</h2>
 		<form action="" method="post">
@@ -34,9 +30,9 @@
 		<% String dname = request.getParameter("dname");
 		String pname = request.getParameter("pname");
 	 	%>
-	</fieldset>
-	<br><br>
+	</fieldset><br><br>
 	
+	<p>*지급 내역과 공제 내역의 상세정보를 확인하시려면, 해당 금액을 클릭해주세요.</p>
 	<table width="700">
 		<tr>
 			<th>귀속연월</th>

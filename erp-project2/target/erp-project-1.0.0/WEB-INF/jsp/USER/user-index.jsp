@@ -17,7 +17,7 @@
 				<li><a href="user-inquiry.do">인사조회</a></li> 
 				<li><a href="user-personal-record.do">인사카드</a></li>
 				<li><a href="user-registration.do">사원 신규 등록</a></li>
-				<li><a href="">인사 발령 조회</a></li>
+				<li><a href="user-PA-inquiry.do">인사 발령 조회</a></li>
 				<li><a href="user-PA-registration.do">인사 발령 등록</a></li>
 				<li><a href="user-department.do">부서관리</a></li>
 				<li><a href="user-position-registration.do">직급관리</a></li>

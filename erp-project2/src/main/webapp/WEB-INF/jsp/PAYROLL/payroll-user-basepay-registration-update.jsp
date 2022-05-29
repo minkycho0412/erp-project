@@ -8,7 +8,7 @@ String uid = "root"; String pass = "ch130381_M";
 String salary = request.getParameter("salary");
 String sql = "UPDATE base set salary=? WHERE base_uno='0202103'";
 try {
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
 	pre.setString(1, salary);

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>초과 근무 입력</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
@@ -22,21 +24,19 @@
 			<input type="time" name="ostart" /><br>
 			<label for="oend">근무 종료: </label>
 			<input type="time" name="oend" /><br>
-			총 근로시간: (자동계산)<br>
-			<label for="asearch">근무형태: </label>
-			<select name="asearch">
-				<option value="aname">연장근무</option>
-				<option value="aname">철야근무</option>
-				<option value="aname">특근</option>
-				<option value="aname">주말근무</option>
-				<option value="aname">야간근무</option>
+			총 근로시간: <br>
+			<label for="aname">근무형태: </label>
+			<select name="aname">
+				<option value="overtime">연장근무</option>
+				<option value="overnight">철야근무</option>
+				<option value="overwork">특근</option>
+				<option value="weekend">주말근무</option>
+				<option value="night">야간근무</option>
 			</select><br>
-			
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		
 			<input type="submit" value="등록"/>
 		</form>
-	</fieldset>
-	<br><br>
+	</fieldset><br><br>
 	
 </body>
 </html>

@@ -5,13 +5,13 @@
 <% 
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp";
-String uid = "root"; String pass = "ch130381_M";
+String uid = "root"; String pass = "0000";
 String id = request.getParameter("id"); 
 String pw = request.getParameter("pw");
 String sql1 = "select * from login where id = '" + id + "'";
 String sql2 = "select * from login where pw = '" + pw + "'";
 try {
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	Statement cre1 = conn.createStatement();
 	Statement cre2 = conn.createStatement(); 

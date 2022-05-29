@@ -4,12 +4,12 @@
 <% 
 	request.setCharacterEncoding("UTF-8"); 
 	String url = "jdbc:mysql://localhost:3306/erp";
-	String uid = "root"; String pass = "ch130381_M";
+	String uid = "root"; String pass = "0000";
 	String id = request.getParameter("id"); 
 	String pw = request.getParameter("pw");
 	String sql = "INSERT INTO login VALUES(?,?)";
 	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url, uid, pass);
 		PreparedStatement pre = conn.prepareStatement(sql); 
 		pre.setString(1, id); pre.setString(2, pw);

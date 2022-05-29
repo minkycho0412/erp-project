@@ -11,7 +11,7 @@ String lowdname = request.getParameter("lowdname");
 String sql = "delete from dept where dno = '"+dno+"' and dname = '"+dname+
 "' and lowdno = '"+lowdno+"' and lowdname = '"+lowdname+"'";
 
-Class.forName("com.mysql.cj.jdbc.Driver");
+Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection
 ("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
 Statement stmt = conn.createStatement(); 

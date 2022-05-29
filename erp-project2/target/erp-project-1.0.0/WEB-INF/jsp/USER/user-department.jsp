@@ -1,80 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*" errorPage="error.jsp"%>
+
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="UTF-8">
 <title>부서 등록</title>
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
-</head>
 <body>
-	<jsp:include page="user-index.jsp" flush="true"/>
+	<script language = javascript>
+    function jsp(num)
+    {
+        var theForm = document.frmSubmit;
+          if(num == 1)
+        {
+            theForm.method = "post";
+            theForm.action = "department-insert.jsp";
+        }
+        else if(num == 2)
+           {
+              theForm.method = "post";
+              theForm.action = "department-delete.jsp";
+        }
+        theForm.submit();
+    }
+  </script>
+	
 	
 	<div class="contents">
+	<form name = frmSubmit>
 		<fieldset>
 			<h2>부서 등록</h2>
-			<form action="" method="post">
 				<label for="dno">부서코드: </label>
 				<input type="text" name="dno" required/>
 				<label for="dname">부서명: </label>
-				<input type="text" name="dname" required/>&emsp;
-				<input type="submit" value="등록"/>
-			</form>
-			<% String dno = request.getParameter("dno");
-			String dname = request.getParameter("dname");
-			%>
+				<input type="text" name="dname" required/><p>
+				<label for="lowdno">하위부서코드: </label>
+				<input type="text" name="lowdno" required/>
+				<label for="lowdname">하위부서명: </label>
+				<input type="text" name="lowdname" required/><p>
+			
+			<input type="button" onClick="jsp(1)" value="등록">
+			<input type="button" onClick="jsp(2)" value="삭제">
 		</fieldset>
-		<br><br><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		</form>
 		
-		<button>수정</button>&emsp;&emsp;
-		<button>삭제</button>
-		<br><br>
-		  
-		<table width="300">
-			<tr>
-				<th>선택</th>
-				<th>부서코드</th>
-				<th>부서명</th>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><%= dno %></td>
-				<td><a href="user-sub-department.do"><%= dname %></a></td>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-			
-			<tr>
-				<td><input type = "checkbox" value = "on"></td>
-				<td><br></td>
-				<td><br></td>
-			</tr>
-		</table>
+<%
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection conn = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "");
+Statement cre = conn.createStatement(); 
+ResultSet rs = cre.executeQuery("select * from dept order by dno"); 
+%> 
+<p>
+<table width="400" border="1">
+<tr> <th>부서코드 <th>부서명 <th>하위부서코드 <th>하위부서명
+<%while(rs.next()){%>		
+<tr align= "center"> <td><%=rs.getString("dno") %> <td><%=rs.getString("dname") %>
+<td><%=rs.getString("lowdno") %> 
+<td><a href="department-information.jsp?lowdname=<%=rs.getString("lowdname") %>"><%=rs.getString("lowdname") %></a>
+<%}%>
+</table>
 	</div>
 </body>
 </html>

@@ -14,7 +14,7 @@ String ano = request.getParameter("ano");
 String sql = "INSERT INTO overtime values(?, ?, ?, 1)";
 String sql2 = "SELECT ano, aname FROM op";
 try {
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
 	pre.setString(1, uno); pre.setString(2, ano);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*"%>
 <% 
 request.setCharacterEncoding("UTF-8"); 
@@ -17,21 +18,23 @@ try {
 <head>
 <meta charset="UTF-8">
 <title>공제 총액 상세 정보</title>
-<style>
-	table, td, th {
-		border : 2px solid black;
-		border-collapse : collapse;
-		text-align:center;
-	};
-</style>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<h3>공제 총액 상세 정보</h3>
-	<% if(rs.next()) { 
-	out.println(rs.getString("month") + "월"); %>
+	<%
+		rs.next();
+		out.println("<p>");
+		out.println(rs.getString("year") + "년");
+		out.println(rs.getString("month") + "월");
+		out.println("</p>"); 
+	%>
+	<p>(단위: 원)</p>
+	
 	<table width="900">
 		<tr>
+			<th>사원번호</th>
 			<th>사원명</th>
 			<th>소득세</th>
 			<th>주민세</th>
@@ -45,8 +48,8 @@ try {
 		</tr>
 		
 		<%
-		
 			out.println("<tr>");
+			out.println("<td>" + rs.getString("salary_uno") + "</td>");
 			out.println("<td>" + rs.getString("uname") + "</td>");
 			out.println("<td>" + rs.getString("itax") + "</td>");			 
 			out.println("<td>" + rs.getString("rtax") + "</td>");
@@ -58,7 +61,6 @@ try {
 			out.println("<td>" + rs.getString("ltcinsurance") + "</td>");
 			out.println("<td>" + rs.getString("dtotal") + "</td>");
 			out.println("</tr>");
-		}
 		%>
 	</table>
 <%	} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage());

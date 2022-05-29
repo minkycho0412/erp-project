@@ -8,7 +8,7 @@ String url = "jdbc:mysql://localhost:3306/erp";
 String uid = "root"; String pass = "ch130381_M";
 String sql = "SELECT U.uname, FORMAT(B.salary, 0) AS f_salary, S.* FROM user U, base B, salary S WHERE U.uno = S.salary_uno AND B.sno = S.salary_sno";
 try {
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery(sql);
