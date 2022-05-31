@@ -22,58 +22,60 @@ try {
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
-	<h3>지급 총액 상세 정보</h3>
-	<% 
-		rs.next();
-		out.println("<p>");
-		out.println(rs.getString("year") + "년");
-		out.println(rs.getString("month") + "월");
-		out.println("</p>"); 
-	%>
-	<p>(단위: 원)</p>
-	
-	<table width="1200">
-		<tr>
-			<th>사원번호</th>
-			<th>사원명</th>
-			<th>기본급</th>
-			<th>식대</th>
-			<th>차량유지비</th>
-			<th>연장수당</th>
-			<th>철야수당</th>
-			<th>특근수당</th>
-			<th>주말근무</th>
-			<th>야간근로</th>
-			<th>직책수당</th>
-			<th>출산보육수당</th>
-			<th>지각</th>
-			<th>조퇴</th>
-			<th>변동급수당</th>
-			<th>지급총액</th>
-			
-		</tr>
-		
-		<%
-			out.println("<tr>");
-			out.println("<td>" + rs.getString("salary_uno") + "</td>");
-			out.println("<td>" + rs.getString("uname") + "</td>");
-			out.println("<td>" + rs.getString("f_salary") + "</td>");			 
-			out.println("<td>" + rs.getString("food") + "</td>");
-			out.println("<td>" + rs.getString("vehicle") + "</td>");
-			out.println("<td>" + rs.getString("overtime") + "</td>");
-			out.println("<td>" + rs.getString("overnight") + "</td>");
-			out.println("<td>" + rs.getString("overwork") + "</td>");
-			out.println("<td>" + rs.getString("weekend") + "</td>");
-			out.println("<td>" + rs.getString("night") + "</td>");
-			out.println("<td>" + rs.getString("position") + "</td>");
-			out.println("<td>" + rs.getString("maternity") + "</td>");
-			out.println("<td>" + rs.getString("tardy") + "</td>");
-			out.println("<td>" + rs.getString("early") + "</td>");
-			out.println("<td>" + rs.getString("variable") + "</td>");
-			out.println("<td>" + rs.getString("ptotal") + "</td>");
-			out.println("</tr>");
+	<div class="contents">
+		<h3>지급 총액 상세 정보</h3>
+		<% 
+			rs.next();
+			out.println("<p>");
+			out.println(rs.getString("year") + "년");
+			out.println(rs.getString("month") + "월");
+			out.println("</p>"); 
 		%>
-	</table>
+		<p>(단위: 원)</p>
+		
+		<table width="1200">
+			<tr>
+				<th>사원번호</th>
+				<th>사원명</th>
+				<th>기본급</th>
+				<th>식대</th>
+				<th>차량유지비</th>
+				<th>연장수당</th>
+				<th>철야수당</th>
+				<th>특근수당</th>
+				<th>주말근무</th>
+				<th>야간근로</th>
+				<th>직책수당</th>
+				<th>출산보육수당</th>
+				<th>지각</th>
+				<th>조퇴</th>
+				<th>변동급수당</th>
+				<th>지급총액</th>
+				
+			</tr>
+			
+			<%
+				out.println("<tr>");
+				out.println("<td>" + rs.getString("salary_uno") + "</td>");
+				out.println("<td>" + rs.getString("uname") + "</td>");
+				out.println("<td>" + rs.getString("f_salary") + "</td>");			 
+				out.println("<td>" + rs.getString("food") + "</td>");
+				out.println("<td>" + rs.getString("vehicle") + "</td>");
+				out.println("<td>" + rs.getString("overtime") + "</td>");
+				out.println("<td>" + rs.getString("overnight") + "</td>");
+				out.println("<td>" + rs.getString("overwork") + "</td>");
+				out.println("<td>" + rs.getString("weekend") + "</td>");
+				out.println("<td>" + rs.getString("night") + "</td>");
+				out.println("<td>" + rs.getString("position") + "</td>");
+				out.println("<td>" + rs.getString("maternity") + "</td>");
+				out.println("<td>" + rs.getString("tardy") + "</td>");
+				out.println("<td>" + rs.getString("early") + "</td>");
+				out.println("<td>" + rs.getString("variable") + "</td>");
+				out.println("<td>" + rs.getString("ptotal") + "</td>");
+				out.println("</tr>");
+			%>
+		</table>
+	</div>	
 <%	} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage());
 }
 %>

@@ -5,20 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>근태 항목 등록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="attendance-index.jsp" flush="true"/>
-	<h2>근태 항목 등록</h2>
-	<form method="post" action="attendance-option-registration-success.do">
-	휴가명: <input type="text" name="rname"><p>
-	사용 기간: <input type="date" name="adate1">
-	~ <input type="date" name="adate2"><p>
-	일/시간: <input type="text" name="time"><p>
-	근무 유형: <input type="text" name="aname"><p>
-	인정 기준: <input type="text" name="criterion"><p>
-	<input type="submit" value="등록"><p>
-	</form>
+	<div class="contents">
+		<h2>근태 항목 등록</h2>
+		<form method="post" action="attendance-option-registration-success.do">
+		휴가명: <input type="text" name="rname"><p>
+		사용 기간: <input type="date" name="adate1">
+		~ <input type="date" name="adate2"><p>
+		일/시간: <input type="text" name="time"><p>
+		근무 유형: <input type="text" name="aname"><p>
+		인정 기준: <input type="text" name="criterion"><p>
+		<input type="submit" value="등록"><p>
+		</form>
+	</div>
 </body>
 </html>

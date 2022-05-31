@@ -51,12 +51,5 @@ public class HrmController {
 		
 		return "HRM/main-calendar";
 	}
-	
-	// 에러
-		@RequestMapping(value="/error.do")
-		public String error(HttpServletRequest request, ModelMap model) {
-		      
-			return "HRM/error";
-		      
-		}
+
 }

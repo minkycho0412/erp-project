@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
 <% 
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -16,12 +17,14 @@ try {
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초과 근무 조회</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
-	<fieldset>
+	<div class="contents">
 		<h2>Search</h2>
 		<form action="" method="post">
 			<label for="usearch">사원검색: </label>
@@ -45,38 +48,52 @@ try {
 			<input type="date" name="odate"/><br>
 			<input type="submit" value="조회"/>
 		</form>
+		<br><br>
 		<% 
-		String usearch = request.getParameter("usearch");
-		String user = request.getParameter("user");
+			String usearch = request.getParameter("usearch");
+			String user = request.getParameter("user");
+			
+			pre.setString(1, user);
+			pre.setString(2, user);
+			ResultSet rs = pre.executeQuery();
+		%>
 		
-		pre.setString(1, user);
-		pre.setString(2, user);
-		ResultSet rs = pre.executeQuery();
-		%>
-	</fieldset><br><br>
-	
-	<table width="500">
-		<tr>
-			<th>사원번호</th>
-			<th>사원명</th>
-			<th>근무형태</th>
-			<th>날짜</th>
-			<th>시간</th>
-		</tr>
-	
-		<% while (rs.next()) { 
-			out.println("<tr>");
-			out.println("<td>" + rs.getString("uno") + "</td>");
-			out.println("<td>" + rs.getString("uname") + "</td>");			 
-			out.println("<td>" + rs.getString("aname") + "</td>");
-			out.println("<td>" + rs.getString("odate") + "</td>");
-			out.println("<td>" + rs.getString("ohour") + "</td>");
-			out.println("</tr>");
-		}
-		%>
-	</table>
+		<section class="ftco-section">
+			  <div class="container">
+			    <div class="row">
+			      <div class="col-md-12">
+			        <div class="table-wrap">
+			          <table class="table">
+			            <thead class="thead-dark">
+							<tr class="alert" role="alert">
+								<th>사원번호</th>
+								<th>사원명</th>
+								<th>근무형태</th>
+								<th>날짜</th>
+								<th>시간</th>
+							</tr>
+						</thead>
+		            	<tbody>
+							<% while (rs.next()) { 
+								out.println("<tr>");
+								out.println("<td>" + rs.getString("uno") + "</td>");
+								out.println("<td>" + rs.getString("uname") + "</td>");			 
+								out.println("<td>" + rs.getString("aname") + "</td>");
+								out.println("<td>" + rs.getString("odate") + "</td>");
+								out.println("<td>" + rs.getString("ohour") + "</td>");
+								out.println("</tr>");
+							}
+							%>
+						</tbody>
+			          </table>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+	    </section>
+    </div>
 	<%
-		} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage()); }
+		} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage() + "<br><a href='main-calendar.do'>메인 화면으로 돌아가기</a>"); }
 	%>
 </body>
 </html>

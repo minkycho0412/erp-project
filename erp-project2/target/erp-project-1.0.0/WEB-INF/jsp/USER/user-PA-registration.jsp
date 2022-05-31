@@ -14,24 +14,28 @@
 	<div class="contents">
 		<h2>인사 발령 등록</h2>
 		<form method="post" action="user-PA-registration-success.do">
-			사원코드:
-			<input type="text" name="uno"><p>
-			사원명:
-			<input type="text" name="uname"><p>
-			발령구분:
-			<input type="text" name="pa"><p>
-			발령일자:
-			<input type="date" name="pa_date"><p>
-			발령직급:
-			<select name=pa_position>
-				<option>과장 <option>대리 <option>사원
-			</select><p>
-			발령부서:
-			<select name=pa_dept>
-				<option>영업 <option>회계 <option>인사
-			</select><p>
+			<label for="uno">사원코드: </label>
+			<input type="text" name="uno"><br>
+			<label for="uname">사원명: </label>
+			<input type="text" name="uname"><br>
+			<label for="pa">발령구분: </label>
+			<input type="text" name="pa"><br>
+			<label for="pa_date">발령일자: </label>
+			<input type="date" name="pa_date"><br>
+			<label for="pa_position">발령직급: </label>
+			<select name="pa_position">
+				<option>과장</option>
+				<option>대리</option>
+				<option>사원</option>
+			</select><br>
+			<label for="pa_dept">발령부서: </label>
+			<select name="pa_dept">
+				<option>영업</option>
+				<option>회계</option>
+				<option>인사</option>
+			</select><br>
 			<input type="submit" value="등록">
-			<input type="reset" value="취소">
+			<input type="reset" value="초기화">
 		</form>
 	</div>
 </body>

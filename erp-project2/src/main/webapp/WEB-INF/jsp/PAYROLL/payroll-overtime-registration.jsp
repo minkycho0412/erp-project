@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초과 근무 입력</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
-	<fieldset>
+	<div class="contents">
 		<h2>초과 근무 등록</h2>
 		<form action="payroll-overtime-registration-insert.do" method="post">
 		
@@ -36,7 +38,7 @@
 		
 			<input type="submit" value="등록"/>
 		</form>
-	</fieldset><br><br>
-	
+		<br><br>
+	</div>
 </body>
 </html>

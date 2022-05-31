@@ -1,35 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" errorPage="error.jsp"%>
+<%@ page import="java.sql.*"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
+<% 
+request.setCharacterEncoding("UTF-8"); 
+String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+String uid = "root"; String pass = "Q1w2e3r4!";
+String sql = "select * from position order by pno";
+try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection conn = DriverManager.getConnection(url, uid, pass);
+	Statement stmt = conn.createStatement();
+	ResultSet rs = stmt.executeQuery(sql);
+%>
 
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="UTF-8">
-<title>직급 등록</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>직급 관리</title>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
+</head>
 <body>
-	<script language = javascript>
-    function jsp(num)
-    {
-        var theForm = document.frmSubmit;
-          if(num == 1)
-        {
-            theForm.method = "post";
-            theForm.action = "position-insert.jsp";
-        }
-        else if(num == 2)
-           {
-              theForm.method = "post";
-              theForm.action = "position-delete.jsp";
-        }
-        theForm.submit();
-    }
-  </script>
-	
-	
+	<jsp:include page="user-index.jsp" flush="true"/>
 	<div class="contents">
-	<form name = frmSubmit>
-		<fieldset>
-			<h2>직급 등록</h2>
+		<script language = javascript>
+		    function jsp(num)
+		    {
+		        var theForm = document.frmSubmit;
+		          if(num == 1)
+		        {
+		            theForm.method = "post";
+		            theForm.action = "user-position-insert.do";
+		        }
+		        else if(num == 2)
+		           {
+		              theForm.method = "post";
+		              theForm.action = "user-position-delete.do";
+		        }
+		        theForm.submit();
+		    }
+	    </script>
+	    
+		<form name = frmSubmit>
+			<h2>직급 관리</h2>
 				<label for="pno">직급코드: </label>
 				<input type="text" name="pno" required/>
 				<label for="pname">직급명: </label>
@@ -37,23 +54,39 @@
 			
 			<input type="button" onClick="jsp(1)" value="등록">
 			<input type="button" onClick="jsp(2)" value="삭제">
-		</fieldset>
 		</form>
+		<br><br>
 		
-<%
-Class.forName("com.mysql.cj.jdbc.Driver");
-Connection conn = DriverManager.getConnection
-("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
-Statement cre = conn.createStatement(); 
-ResultSet rs = cre.executeQuery("select * from position order by pno"); 
-%> 
-<p>
-<table width="200" border="1">
-<tr> <th>직급코드 <th>직급명
-<%while(rs.next()){%>		
-<tr align= "center"> <td><%=rs.getString("pno") %> <td><%=rs.getString("pname") %>
-<%}%>
-</table>
+		<section class="ftco-section">
+			  <div class="container">
+			    <div class="row">
+			      <div class="col-md-12">
+			        <div class="table-wrap">
+			          <table class="table">
+			            <thead class="thead-dark">
+							<tr class="alert" role="alert">
+								<th>직급코드</th>
+								<th>직급명</th>
+							</tr>
+						</thead>
+		            	<tbody>
+		            	<%while(rs.next()){%>
+							<tr class="alert" role="alert">
+								<td><%=rs.getString("pno")%></td>
+								<td><%=rs.getString("pname") %></td>
+							</tr>
+						<%}%>
+						</tbody>
+			          </table>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+	    </section>
+	    
+    <%
+		} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage() + "<br><a href='main-calendar.do'>메인 화면으로 돌아가기</a>"); }
+	%>
 	</div>
 </body>
 </html>

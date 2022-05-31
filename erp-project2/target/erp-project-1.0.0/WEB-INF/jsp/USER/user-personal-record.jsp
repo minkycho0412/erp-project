@@ -12,30 +12,41 @@
 	<jsp:include page="user-index.jsp" flush="true"/>
 	
 	<div class="contents">
-		<fieldset>
-			<h2>인사카드</h2>
-			사원번호: ${uno} <br>
-			사원명: ${uname} <br>
-			부서: ${dname} <br>
-			직급: ${pname} <br>
-			입사일: ${joindate} <br>
-			이메일: ${email} <br>
-			생년월일: ${birth} <br>
-			주민번호: ${Fbirthno} - ${Bbirthno} <br>
-			주소: ${addr} <br>
-			공제가족수: ${deduct} <br>
-			은행명: ${bname} <br>
-			계좌번호: ${bno} <br>
-			예금주: ${bhold} <br>
-			가족정보: ${info} <br>
-			
-			<!-- 사원 정보 변경 페이지로 이동 -->
-			<button id="modify"><a href="user-registration.do">수정하기</a></button>
-			
-			<!-- 인사 조회 페이지로 이동 -->
-			<button id="confirm"><a href="user-inquiry.do">확인</a></button>
-			<button id="print">출력</button>
-		</fieldset>
+		<h2>인사카드</h2>
+		사원번호: <br>
+		사원명: <br>
+		부서: <br>
+		직급: <br>
+		입사일: <br>
+		이메일: <br>
+		생년월일: <br>
+		주민번호: <br>
+		주소: <br>
+		공제가족수: <br>
+		은행명: <br>
+		계좌번호: <br>
+		예금주: <br>
+		가족정보: <br>
+		
+		<%-- <h2>인사카드</h2>
+		사원번호: ${uno} <br>
+		사원명: ${uname} <br>
+		부서: ${dname} <br>
+		직급: ${pname} <br>
+		입사일: ${joindate} <br>
+		이메일: ${email} <br>
+		생년월일: ${birth} <br>
+		주민번호: ${Fbirthno} - ${Bbirthno} <br>
+		주소: ${addr} <br>
+		공제가족수: ${deduct} <br>
+		은행명: ${bname} <br>
+		계좌번호: ${bno} <br>
+		예금주: ${bhold} <br>
+		가족정보: ${info} <br> --%>
+		
+		<button><a href="user-registration.do">수정하기</a></button>
+		<button><a href="user-inquiry.do">확인</a></button>
+		<button>출력</button>
 	</div>
 </body>
 </html>

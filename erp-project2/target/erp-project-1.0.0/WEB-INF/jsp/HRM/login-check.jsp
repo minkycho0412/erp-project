@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로그인</title>
+</head>
+<body>
 <% 
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp";
@@ -11,7 +18,7 @@ String pw = request.getParameter("pw");
 String sql1 = "select * from login where id = '" + id + "'";
 String sql2 = "select * from login where pw = '" + pw + "'";
 try {
-	Class.forName("com.mysql.jdbc.Driver");
+	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	Statement cre1 = conn.createStatement();
 	Statement cre2 = conn.createStatement(); 
@@ -25,10 +32,10 @@ try {
 			session.setAttribute("pw", pw);
 			response.sendRedirect("main-calendar.do");
 		} else { %>
-			<script>
-				alert("비밀번호를 확인해주세요.");
-				location.href="login.do";
-			</script>
+		<script>
+			alert("비밀번호를 확인해주세요.");
+			location.href="login.do";
+		</script>
 		<% }
 		
 	} else { %>
@@ -42,3 +49,5 @@ try {
 	out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage());
 } 
 %>
+</body>
+</html>
