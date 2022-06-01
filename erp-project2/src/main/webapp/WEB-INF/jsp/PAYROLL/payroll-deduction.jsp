@@ -1,13 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import ="java.time.format.DateTimeFormatter" %>
+<%@ page import ="java.time.temporal.ChronoUnit" %>
 
 <% 
 request.setCharacterEncoding("UTF-8"); 
+String uname = request.getParameter("uname");
+String month = request.getParameter("month");
+String dcolno = request.getParameter("dcolno");
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+LocalDate get = LocalDate.parse(month, formatter);
+int get_year=get.getYear();
+int get_month=get.getMonthValue();
+
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
-String sql = "SELECT U.uname, S.* FROM user U, salary S WHERE U.uno = S.salary_uno";
+String sql="select * from dsalary where uname='"+uname+"' and month='"+month+"'";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
@@ -27,9 +40,7 @@ try {
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<div class="contents">
-		<h3>공제 총액 상세 정보</h3>
-		<% rs.next(); %>
-		<p><%=rs.getString("year")%>년 <%=rs.getString("month")%>월</p>
+		<h3><%=get_year%>-<%=get_month %> 공제 총액 상세</h3>
 		<p>(단위: 원)</p>
 		
 		<section class="ftco-section">
@@ -40,8 +51,9 @@ try {
 			          <table class="table">
 			            <thead class="thead-dark">
 							<tr class="alert" role="alert">
-								<th>사원번호</th>
 								<th>사원명</th>
+								<th>지각</th>
+								<th>조퇴</th>
 								<th>소득세</th>
 								<th>주민세</th>
 								<th>국민연금</th>
@@ -49,23 +61,25 @@ try {
 								<th>고용보험</th>
 								<th>사우회비</th>
 								<th>가불금</th>
-								<th>장기요양</th>
+								<th>장기요양보험</th>
 								<th>공제총액</th>
 							</tr>
 						</thead>
 		            	<tbody>
-							<tr class="alert" role="alert">
-								<td><%=rs.getString("salary_uno")%></td>
-								<td><%=rs.getString("uname")%></td>
-								<td><%=rs.getString("itax")%></td>
-								<td><%=rs.getString("rtax")%></td>
-								<td><%=rs.getString("pension")%></td>
-								<td><%=rs.getString("hinsurance")%></td>
-								<td><%=rs.getString("einsurance")%></td>
-								<td><%=rs.getString("dues")%></td>
-								<td><%=rs.getString("adpayment")%></td>
-								<td><%=rs.getString("ltcinsurance")%></td>
-								<td><%=rs.getString("dtotal")%></td>
+			            	<%while(rs.next()){ %>
+								<tr class="alert" role="alert">
+								<td><%=uname %></td>
+								<%
+								int dtotal=0; int num=9;
+								while(true){
+									dtotal+=rs.getInt(num);
+								%>
+								<td><%=rs.getInt(num) %></td>
+								<%if(dcolno.equals(Integer.toString(num))) break;
+								num++; }
+								%>
+								<td><%=dtotal %></td>
+								<%}%>
 							</tr>
 						</tbody>
 			          </table>

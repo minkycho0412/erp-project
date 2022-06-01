@@ -2,17 +2,34 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import ="java.time.format.DateTimeFormatter" %>
+<%@ page import ="java.time.temporal.ChronoUnit" %>
 
 <% 
 request.setCharacterEncoding("UTF-8"); 
+String uname = request.getParameter("uname");
+String month = request.getParameter("month");
+int wage = Integer.parseInt(request.getParameter("wage"));
+String fcolno = request.getParameter("fcolno");
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+LocalDate get = LocalDate.parse(month, formatter);
+int get_year=get.getYear();
+int get_month=get.getMonthValue();
+
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
-String sql = "SELECT U.uname, FORMAT(B.salary, 0) AS f_salary, S.* FROM user U, base B, salary S WHERE U.uno = S.salary_uno AND B.sno = S.salary_sno";
+String total="select * from tsalary where uname='"+uname+"' and month='"+month+"'";
+String aname="select aname from op";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
-	Statement stmt = conn.createStatement();
-	ResultSet rs = stmt.executeQuery(sql);
+	Statement cre_total = conn.createStatement();
+	ResultSet rs_total = cre_total.executeQuery(total);
+	Statement cre_aname = conn.createStatement();
+	ResultSet rs_aname = cre_aname.executeQuery(aname);
 %>
 
 <!DOCTYPE html>
@@ -27,9 +44,7 @@ try {
 <body>
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<div class="contents">
-		<h3>지급 총액 상세 정보</h3>
-		<% rs.next(); %>
-		<p><%=rs.getString("year")%>년 <%=rs.getString("month")%>월</p>
+		<h3><%=get_year%>-<%=get_month %> 지급 총액 상세</h3>
 		<p>(단위: 원)</p>
 		
 		
@@ -41,42 +56,35 @@ try {
 			          <table class="table">
 			            <thead class="thead-dark">
 							<tr class="alert" role="alert">
-								<th>사원번호</th>
 								<th>사원명</th>
 								<th>기본급</th>
-								<th>식대</th>
 								<th>차량유지비</th>
-								<th>연장수당</th>
-								<th>철야수당</th>
-								<th>특근수당</th>
-								<th>주말근무</th>
-								<th>야간근로</th>
 								<th>직책수당</th>
 								<th>출산보육수당</th>
-								<th>지각</th>
-								<th>조퇴</th>
 								<th>변동급수당</th>
+								<%while(rs_aname.next()){ %>
+								<th><%=rs_aname.getString("aname") %></th>
+								<%}%>
 								<th>지급총액</th>
 							</tr>
 						</thead>
 		            	<tbody>
+		            	
+		            		<%while(rs_total.next()){ %>
 							<tr class="alert" role="alert">
-								<td><%=rs.getString("salary_uno")%></td>
-								<td><%=rs.getString("uname")%></td>
-								<td><%=rs.getString("f_salary")%></td>
-								<td><%=rs.getString("food")%></td>
-								<td><%=rs.getString("vehicle")%></td>
-								<td><%=rs.getString("overtime")%></td>
-								<td><%=rs.getString("overnight")%></td>
-								<td><%=rs.getString("overwork")%></td>
-								<td><%=rs.getString("weekend")%></td>
-								<td><%=rs.getString("night")%></td>
-								<td><%=rs.getString("position")%></td>
-								<td><%=rs.getString("maternity")%></td>
-								<td><%=rs.getString("tardy")%></td>
-								<td><%=rs.getString("early")%></td>
-								<td><%=rs.getString("variable")%></td>
-								<td><%=rs.getString("ptotal")%></td>
+							<td><%=uname %></td>
+							<td><%=wage %></td>
+							<%
+							int ptotal=wage; int num=11;
+							while(true){
+								ptotal+=rs_total.getInt(num);
+								%>
+							<td><%=rs_total.getInt(num) %></td>
+							<%if(fcolno.equals(Integer.toString(num))) break;
+							num++;
+							}%>
+							<td><%=ptotal %></td>
+							<%}%>
 							</tr>
 						</tbody>
 			          </table>

@@ -8,13 +8,18 @@ String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTi
 String uid = "root"; String pass = "Q1w2e3r4!";
 String sql = "INSERT INTO attendance VALUES(?, ?, ?, ?, ?, ?)";
 String attend_uno = request.getParameter("attend_uno");
+String attend_rname = request.getParameter("attend_rname");
+String cperiod = request.getParameter("cperiod");
+String Vtotalday = request.getParameter("Vtotalday");
+String Vuseday = request.getParameter("Vuseday");
+String Vrestday = request.getParameter("Vrestday");
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
-	pre.setString(1, attend_uno); pre.setString(2, attend_uno);
-	pre.setString(3, attend_uno); pre.setString(4, attend_uno);
-	pre.setString(5, attend_uno); pre.setString(6, attend_uno);
+	pre.setString(1, attend_uno); pre.setString(2, attend_rname);
+	pre.setString(3, cperiod); pre.setString(4, Vtotalday);
+	pre.setString(5, Vuseday); pre.setString(6, Vrestday);
 	pre.executeUpdate();
 %>
 <script>

@@ -7,12 +7,11 @@
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
-String sql = "SELECT U.uname, A.* FROM user U, attendance A WHERE U.uno = A.attend_uno";
+String sql = "SELECT U.uname, U.lowdname, A.* FROM user U, attendance A WHERE U.uno = A.attend_uno AND (U.uno=? OR U.uname=? OR U.lowdname=?)";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
-	ResultSet rs = pre.executeQuery();
 %>
 
 <!DOCTYPE html>
@@ -40,10 +39,22 @@ try {
 			<input type="text" name="dname"><br>
 			
 			<label for="dname">날짜검색: </label>
-			<input type="date" name="search_date"><br>
-			
+			<input type="date" id="now_date" name="search_date"><br>
+				<script>
+				document.getElementById('now_date').valueAsDate = new Date();
+			</script>
 			<input type="submit" value="조회">
 		</form>
+		<% 
+			String usearch = request.getParameter("usearch");
+			String user = request.getParameter("user");
+			String dname = request.getParameter("dname");
+			
+			pre.setString(1, user);
+			pre.setString(2, user);
+			pre.setString(3, dname);
+			ResultSet rs = pre.executeQuery();
+		%>
 		<br><br>
 		
 		<section class="ftco-section">
@@ -68,13 +79,14 @@ try {
 		            	
 		            		<% while (rs.next()) { %>
 							<tr class="alert" role="alert">
-								<td><br></td>
-								<td><br></td>
-								<td><br></td>
-								<td><br></td>
-								<td><br></td>
-								<td><br></td>
-								<td><br></td>
+								<td><%=rs.getString("attend_uno")%></td>
+								<td><%=rs.getString("uname")%></td>
+								<td><%=rs.getString("lowdname")%></td>
+								<td><%=rs.getString("attend_rname")%></td>
+								<td><%=rs.getString("cperiod")%></td>
+								<td><%=rs.getString("Vtotalday")%></td>
+								<td><%=rs.getString("Vuseday")%></td>
+								<td><%=rs.getString("Vrestday")%></td>
 							</tr>
 						</tbody>
 			          </table>

@@ -18,17 +18,17 @@
 			근태 일자:
 			<input type="date" id="now_date" name="attend_date" /><br>
 			<script>
-			document.getElementById('now_date').valueAsDate = new Date();
+				document.getElementById('now_date').valueAsDate = new Date();
 			</script>
 			사원 코드:
 			<input type="text" name="attend-uno" />
 			사원명:
 			<input type="text" name="attend-uname" /><br>
 			휴가 종류:
-			<select name="aname">
-				<option>연차</option>
-				<option>출산</option>
-				<option>병가</option>
+			<select name="attend_rname">
+				<option value="">연차</option>
+				<option value="">출산</option>
+				<option value="">병가</option>
 			</select><br>
 			<input type="submit" value="등록">
 		</form>
