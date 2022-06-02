@@ -98,5 +98,21 @@ public class PayrollController {
 	      
 	}
 	
+	// 수당 비율 등록 성공
+	@RequestMapping(value="/payroll-benefit-registration-insert.do")
+	public String benefitRegistrationinsert(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-benefit-registration-insert";
+	      
+	}
+	
+	//부서 직급별 기본급 등록 성공
+	@RequestMapping(value="/payroll-dp-basepay-registartion-insert.do")
+	public String payrolldpbasepayregistartioninsert(HttpServletRequest request, ModelMap model) {
+	      
+		return "PAYROLL/payroll-dp-basepay-registartion-insert";
+	      
+	}
+	
 	
 }

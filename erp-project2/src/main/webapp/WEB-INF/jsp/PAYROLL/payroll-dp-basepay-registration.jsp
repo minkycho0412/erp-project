@@ -16,13 +16,15 @@
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<div class="contents">
 		<h2>부서/직급 기본급 등록</h2>
-		<form action="" method="post">
+		<form action="payroll-dp-basepay-registartion-insert.do" method="post">
 			<label for="dno">부서코드: </label> 
 			<input type="text" name="dno" required/><br>
 			<label for="pno">직급코드: </label>
 			<input type="text" name="pno" required/><br>
-			<label for="sno">기본급: </label>
+			<label for="sno">기본급코드: </label>
 			<input type="text" name="sno" required/><br>
+			<label for="salary">기본급: </label>
+			<input type="text" name="salary" required/><br>
 			<input type="submit" value="등록"/>
 		</form>
 		<br><br>
@@ -35,8 +37,8 @@
 			          <table class="table">
 			            <thead class="thead-dark">
 							<tr class="alert" role="alert">
-								<th>직급코드</th>
 								<th>부서코드</th>
+								<th>직급코드</th>
 								<th>기본급</th>
 							</tr>
 						</thead>

@@ -21,9 +21,8 @@
 				document.getElementById('now_date').valueAsDate = new Date();
 			</script>
 			사원 코드:
-			<input type="text" name="attend-uno" />
-			사원명:
-			<input type="text" name="attend-uname" /><br>
+			<label for=""></label>
+			<input type="text" name="attend_uno" />
 			휴가 종류:
 			<select name="attend_rname">
 				<option value="">연차</option>

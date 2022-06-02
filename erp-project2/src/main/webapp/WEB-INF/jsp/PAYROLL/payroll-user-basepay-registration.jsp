@@ -29,16 +29,11 @@ try {
 		<fieldset>
 			<h2>Search</h2>
 			<form action="" method="post">
-				<label for="usearch">사원검색: </label>
-				<select name="usearch">
-					<option value="uno">사원번호</option>
-					<option value="uname">사원명</option>
-				</select>
-				<input type="text" name="user" /><br>
+				<label for="user">사원검색: </label>
+				<input type="text" name="user" placeholder="사원번호 또는 사원명" required/><br>
 				<input type="submit" value="조회"/><br>
 			</form>
 			<% 
-			String usearch = request.getParameter("usearch");
 			String user = request.getParameter("user");
 			
 			pre.setString(1, user);
@@ -50,7 +45,6 @@ try {
 		<form action="payroll-user-basepay-registration-update.do" method="post">
 			<input type="reset" value="초기화" />
 			<input type="submit" value="저장하기"/><br>
-	   	</form>
 	   	
 	   	<section class="ftco-section">
 			  <div class="container">
@@ -74,7 +68,10 @@ try {
 								<td><%=rs.getString("uname")%></td>
 								<td><%=rs.getString("lowdname")%></td>
 								<td><%=rs.getString("pname")%></td>
-								<td><input type="text" name="salary" value="<%=rs.getString("salary")%>" /></td>
+								<td>
+									<input type="text" name="salary" value="<%=rs.getString("salary")%>" />
+									<input type="hidden" name="uno" value="<%=rs.getString("uno")%>" />
+								</td>
 							</tr>
 						</tbody>
 			          </table>
@@ -83,6 +80,7 @@ try {
 			    </div>
 			</div>
 	    </section>
+	    </form>
 	</div>
 	<%
 		} } catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage() + "<br><a href='main-calendar.do'>메인 화면으로 돌아가기</a>"); }

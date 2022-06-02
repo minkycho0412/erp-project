@@ -19,7 +19,8 @@ try {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>부서 등록</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부서 관리</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
@@ -41,15 +42,15 @@ try {
 		</script>
 	
 		<form name = frmSubmit>
-			<h2>부서 등록</h2>
+			<h2>부서 관리</h2>
 			<label for="dno">부서코드: </label>
 			<input type="text" name="dno" required/>
 			<label for="dname">부서명: </label>
-			<input type="text" name="dname" required/><p>
+			<input type="text" name="dname" required/><br>
 			<label for="lowdno">하위부서코드: </label>
 			<input type="text" name="lowdno" required/>
 			<label for="lowdname">하위부서명: </label>
-			<input type="text" name="lowdname" required/><p>
+			<input type="text" name="lowdname" required/><br>
 			
 			<input type="button" onClick="jsp(1)" value="등록">
 			<input type="button" onClick="jsp(2)" value="삭제">

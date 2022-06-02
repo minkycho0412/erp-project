@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>인사 조회</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>

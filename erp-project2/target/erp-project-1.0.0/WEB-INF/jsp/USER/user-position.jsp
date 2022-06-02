@@ -19,7 +19,8 @@ try {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>직급 등록</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>직급 관리</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
 </head>
@@ -44,18 +45,16 @@ try {
 		    }
 	    </script>
 	    
-	    <fieldset>
-			<form name = frmSubmit>
-				<h2>직급 등록</h2>
-					<label for="pno">직급코드: </label>
-					<input type="text" name="pno" required/>
-					<label for="pname">직급명: </label>
-					<input type="text" name="pname" required/><p>
-				
-				<input type="button" onClick="jsp(1)" value="등록">
-				<input type="button" onClick="jsp(2)" value="삭제">
-			</form>
-		</fieldset>
+		<form name = frmSubmit>
+			<h2>직급 관리</h2>
+				<label for="pno">직급코드: </label>
+				<input type="text" name="pno" required/>
+				<label for="pname">직급명: </label>
+				<input type="text" name="pname" required/><p>
+			
+			<input type="button" onClick="jsp(1)" value="등록">
+			<input type="button" onClick="jsp(2)" value="삭제">
+		</form>
 		<br><br>
 		
 		<section class="ftco-section">

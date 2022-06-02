@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+
 <% 
 	request.setCharacterEncoding("UTF-8"); 
-	String url = "jdbc:mysql://localhost:3306/erp";
+	String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	String uid = "root"; String pass = "Q1w2e3r4!";
 	String id = request.getParameter("id"); 
 	String pw = request.getParameter("pw");
@@ -16,10 +17,12 @@
 		pre.executeUpdate(); 
 		session.invalidate();
 %>
+
 <script>
-alert("반갑습니다. <%=id%>님, 로그인 화면으로 이동합니다.");
-location.href="login.do";
+	alert("반갑습니다. <%=id%>님, 로그인 화면으로 이동합니다.");
+	location.href="login.do";
 </script>
-<%	} catch (Exception e) { out.print("죄송합니다. 회원 등록 중 문제가 생겼습니다. <br>" + e.getMessage());
-}
+
+<%
+	} catch (Exception e) { out.print("죄송합니다. 시스템상 문제가 생겼습니다. <br>" + e.getMessage() + "<br><a href='main-calendar.do'>메인 화면으로 돌아가기</a>"); }
 %>

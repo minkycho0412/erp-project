@@ -7,19 +7,18 @@ html, body{
 .main{
   width: 100%;
   display: block;
-  background: #ababab;
 }
 .content-wrap{
   width: 100%;
   margin:0 auto;
-  border: 4px solid rgba(161, 161, 161, 0.5); 
+  border: 1px solid rgba(161, 161, 161, 0.5); 
   border-radius: 20px;
   overflow: hidden;
-  background: #ddaf35;
+  background: #FFFFFF;
 }
 .content-left{
-  background: #0b0809;
-  color:#ddaf35;
+  background: #adb5bd;
+  color:#FFFFFF;
   float: left;
   width: 100%;
   padding: 30px;
@@ -30,11 +29,11 @@ html, body{
 }
 .main-day{
   font-size: 30px;
-  font-weight: bold;
+  font-weight: normal;
 }
 .main-date{
   font-size: 120px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 20px 0;
 }
 .todo-wrap{
@@ -49,13 +48,13 @@ html, body{
   width: 50%;
   margin-right: 20px;
   height: auto; 
-  background: #0b0809;
-  color: #ddaf35;
+  background: #adb5bd;
+  color: #FFFFFF;
   line-height : normal;
   padding: .8em .5em 0 0; 
   font-family: inherit;
   border: 0; 
-  border-bottom: 1px dashed #ddaf35;; 
+  border-bottom: 1px dashed #FFFFFF;; 
   border-radius: 0; 
   outline-style: none; 
   -webkit-appearance: none; 
@@ -67,20 +66,20 @@ html, body{
   font-size: 10px;
   padding: 10px;
   margin: 10px 0 10px 0;
-  background: #ddaf35;
+  background: #FFFFFF;
   border: none;
-  color: #0b0809;
+  color: #adb5bd;
   border-radius: 10px;
 }
 .input-data:hover{
   background: #ffffff;
-  color: #0b0809;
+  color: #adb5bd;
 }
 .input-list > div{
   font-size: 10px;
   width: 60%;
   float: left;
-  color: #ddaf35;
+  color: #FFFFFF;
 }
 .input-list > .checked{
   color: #FFFFFF;
@@ -88,13 +87,13 @@ html, body{
 }
 .del-data{
   display: block;
-  color: #ddaf35;
+  color: #FFFFFF;
   float: left;
   width: 10%;
   cursor: pointer;
   font-size: 10px;
   padding: 10px;
-  background: #0b0809;
+  background: #adb5bd;
   border: none;
   border-radius: 10px;
 }
@@ -114,35 +113,34 @@ html, body{
   height: 40px;
   text-align: center;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
 }
 .active{
-  background: #0b0809;
+  background: #adb5bd;
   border-radius: 50%;
   color: #ffffff;
 }
 
 @media(min-width: 850px){
   .main{
+    padding-top: 5%;
     display: flex;
     align-items: center;
     justify-content:  center;
     width: 100vw;
-    height: 100vh;
-    background: #ababab;
   }
   .content-wrap{
     width: 800px;
     height: 600px;
     margin:0 auto;
-    border: 4px solid rgba(161, 161, 161, 0.5); 
+    border: 1px solid rgba(161, 161, 161, 0.5); 
     border-radius: 20px;
     overflow: hidden;
-    background: #ddaf35;
+    background: #FFFFFF;
   }
   .content-left{
-    background: #0b0809;
-    color:#ddaf35;
+    background: #adb5bd;
+    color:#FFFFFF;
     float: left;
     width: 360px;
     height: 600px;
@@ -154,11 +152,11 @@ html, body{
   }
   .main-day{
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
   }
   .main-date{
     font-size: 120px;
-    font-weight: bold;
+    font-weight: normal;
     margin: 20px 0;
   }
   .todo-wrap{
@@ -172,13 +170,13 @@ html, body{
   .input-box{
     width: 70%;
     height: auto; 
-    background: #0b0809;
-    color: #ddaf35;
+    background: #adb5bd;
+    color: #FFFFFF;
     line-height : normal;
     padding: .8em .5em 0 0; 
     font-family: inherit;
     border: 0; 
-    border-bottom: 1px dashed #ddaf35;; 
+    border-bottom: 1px dashed #FFFFFF;; 
     border-radius: 0; 
     outline-style: none; 
     -webkit-appearance: none; 
@@ -190,30 +188,30 @@ html, body{
     font-size: 10px;
     padding: 10px;
     margin: 20px 0 30px 0;
-    background: #ddaf35;
+    background: #FFFFFF;
     border: none;
-    color: #0b0809;
+    color: #adb5bd;
     border-radius: 10px;
   }
   .input-data:hover{
     background: #ffffff;
-    color: #0b0809;
+    color: #adb5bd;
   }
   .input-list > div{
     font-size: 10px;
     width: 60%;
     float: left;
-    color: #ddaf35;
+    color: #FFFFFF;
   }
   .del-data{
     display: block;
-    color: #ddaf35;
+    color: #FFFFFF;
     float: left;
     width: 10%;
     cursor: pointer;
     font-size: 10px;
     padding: 10px;
-    background: #0b0809;
+    background: #adb5bd;
     border: none;
     border-radius: 10px;
   }
@@ -234,10 +232,10 @@ html, body{
     height: 50px;
     text-align: center;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
   }
   .active{
-    background: #0b0809;
+    background: #adb5bd;
     border-radius: 50%;
     color: #ffffff;
   }

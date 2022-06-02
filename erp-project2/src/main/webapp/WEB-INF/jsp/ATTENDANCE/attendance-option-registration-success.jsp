@@ -6,6 +6,9 @@
 request.setCharacterEncoding("UTF-8");
 String rname = request.getParameter("rname");
 String time = request.getParameter("time");
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+LocalDate date1 = LocalDate.parse(startdate, formatter);
+LocalDate date2 = LocalDate.parse(endate, formatter);
 String slife = "1";
 String Wtype = request.getParameter("Wtype");
 String criterion = request.getParameter("criterion");

@@ -7,12 +7,13 @@ request.setCharacterEncoding("UTF-8");
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
 String salary = request.getParameter("salary");
-String sql = "UPDATE base set salary=? WHERE base_uno='0202103'";
+String uno = request.getParameter("uno");
+String sql = "UPDATE base set salary=? WHERE base_uno=?";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
-	pre.setString(1, salary);
+	pre.setString(1, salary); pre.setString(2, uno);
 	pre.executeUpdate();
 %>
 

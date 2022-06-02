@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import ="java.time.format.DateTimeFormatter" %>
+<%@ page import ="java.time.temporal.ChronoUnit" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>인사 발령 조회</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/table.css'/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/USER/style.css'/>"/>
@@ -17,24 +24,35 @@
 	<div class="contents">
 		<h2>Search</h2>
 		<form action="" method="post">
-			<label for="usearch">사원검색: </label>
-			<select name="usearch">
-				<option value="uno">사원번호</option>
-				<option value="uname">사원명</option>
-			</select>
-			<input type="text" name="usearch" /><br>
-			
-			<label for="classification">발령구분: </label>
-			<input type="text" name="classification" /><br>
+			<label for="usearch">사원명: </label>
+			<input type="text" name="uname" required> <br>
 			<label for="issuance">발령일자: </label>
-			<input type="date" name="startdate" /> 부터
-			<input type="date" name="enddate" /> 까지 <br>
+			<input type="date" name="startdate" required> 부터
+			<input type="date" name="endate" required> 까지 <br>
+			
 			<input type="submit" value="조회"/>
 		</form>
-		<% String dname = request.getParameter("dname");
-		String pname = request.getParameter("pname");
-	 	%>
 		<br><br>
+		
+		<% 
+			request.setCharacterEncoding("UTF-8"); 
+			String uname = request.getParameter("uname");
+			String startdate = request.getParameter("startdate");
+			String endate = request.getParameter("endate");
+			String pa = "select issuance,uno,classification,pposition,pname,pdname,lowdname " 
+			+ "from user u,pa where u.uname='"+uname+"' and u.uno=pa_uno";
+			if(uname!=null){
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate date1 = LocalDate.parse(startdate, formatter);
+			LocalDate date2 = LocalDate.parse(endate, formatter);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DriverManager.getConnection
+			("jdbc:mysql://localhost:3306/erp?serverTimezone=UTC", "root", "Q1w2e3r4!");
+			Statement cre = conn.createStatement();
+			ResultSet rs = cre.executeQuery(pa);
+		%>
+		
+		<h2> &lt<%=uname %>&gt 직원 인사 발령 조회</h2>
 		
 		<section class="ftco-section">
 				  <div class="container">
@@ -44,7 +62,6 @@
 				          <table class="table">
 				            <thead class="thead-dark">
 								<tr class="alert" role="alert">
-									<th>검색</th>
 									<th>발령일자</th>
 									<th>사원번호</th>
 									<th>사원명</th>
@@ -55,18 +72,35 @@
 									<th>발령부서</th>
 								</tr>
 							</thead>
+							
 			            	<tbody>
+								<%
+								while(rs.next()){
+								LocalDate get = LocalDate.parse(rs.getString("issuance"), formatter);
+								long diff1 = ChronoUnit.DAYS.between(date1,get);
+								long diff2 = ChronoUnit.DAYS.between(get,date2);
+								String classification = rs.getString("classification");
+								if(diff1>=0&diff2>=0){
+								if(classification.equals("부서이동")){
+								%>
 								<tr class="alert" role="alert">
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
-									<td><br></td>
+									<td><%=rs.getString("issuance") %></td>
+									<td><%=rs.getString("uno") %></td>
+									<td><%=uname %></td>
+									<td><%=classification %></td>
+									<td>-</td>
+									<td><%=rs.getString("pname") %></td>
+									<td><%=rs.getString("pdname") %></td>
+									<td><%=rs.getString("lowdname") %></td>
 								</tr>
+									
+									<%} else if(classification.equals("승진")) {%>
+									<tr class="alert" role="alert">
+										<td><%=rs.getString("issuance") %> <td><%=rs.getString("uno") %> <td><%=uname %> 
+										<td><%=rs.getString("classification") %> <td><%=rs.getString("pposition") %>
+										<td><%=rs.getString("pname") %> <td>- <td><%=rs.getString("lowdname") %>
+									</tr>
+									<%}}}}%>
 							</tbody>
 				          </table>
 				        </div>

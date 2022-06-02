@@ -7,11 +7,14 @@
 request.setCharacterEncoding("UTF-8"); 
 String url = "jdbc:mysql://localhost:3306/erp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 String uid = "root"; String pass = "Q1w2e3r4!";
-String sql = "SELECT U.uno, U.uname, P.aname, O.odate, O.ohour FROM user U, op P, overtime O WHERE U.uno = O.overtime_uno AND P.ano = O.overtime_ano AND (U.uno=? OR U.uname=?)";
+String sql = "SELECT U.uno, U.uname, P.aname, O.odate, O.ohour FROM user U, op P, overtime O WHERE U.uno = O.overtime_uno AND P.ano = O.overtime_ano AND (U.uno=? OR U.uname=?) AND P.aname=? AND O.odate=?";
+String overtime = "SELECT ano, aname FROM op WHERE arate!='null'";
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
 	PreparedStatement pre = conn.prepareStatement(sql);
+	PreparedStatement pre1 = conn.prepareStatement(overtime);
+	ResultSet rs1 = pre1.executeQuery();
 %>
 <!DOCTYPE html>
 <html>
@@ -27,34 +30,34 @@ try {
 	<div class="contents">
 		<h2>Search</h2>
 		<form action="" method="post">
-			<label for="usearch">사원검색: </label>
-			<select name="usearch">
-				<option value="uno">사원번호</option>
-				<option value="uname">사원명</option>
-			</select>
-			<input type="text" name="user" /><br>
+			<label for="user">사원검색: </label>
+			<input type="text" name="user" placeholder="사원번호 또는 사원명" required/><br>
 			
 			<label for="aname">근무형태: </label>
 			<select name="aname">
-				<option value="no">선택</option>
-				<option value="overtime">연장근무</option>
-				<option value="overnight">철야근무</option>
-				<option value="overwork">특근</option>
-				<option value="weekend">주말근무</option>
-				<option value="night">야간근무</option>
+				<% while (rs1.next()) { %>
+					<option value="<%= rs1.getString("aname") %>"><%= rs1.getString("aname") %></option>
+				<% } %>
 			</select><br>
 			
 			<label for="odate">날짜조회: </label>
-			<input type="date" name="odate"/><br>
+			<input type="date" id="now_date" name="odate" required><br>
+			<script>
+				document.getElementById('now_date').valueAsDate = new Date();
+			</script>
 			<input type="submit" value="조회"/>
 		</form>
 		<br><br>
 		<% 
 			String usearch = request.getParameter("usearch");
 			String user = request.getParameter("user");
+			String aname = request.getParameter("aname");
+			String odate = request.getParameter("odate");
 			
 			pre.setString(1, user);
 			pre.setString(2, user);
+			pre.setString(3, aname);
+			pre.setString(4, odate);
 			ResultSet rs = pre.executeQuery();
 		%>
 		

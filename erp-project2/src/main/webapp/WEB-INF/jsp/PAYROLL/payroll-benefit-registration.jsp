@@ -16,7 +16,7 @@
 	<jsp:include page="payroll-index.jsp" flush="true"/>
 	<div class="contents">
 		<h2>수당 등록</h2>
-		<form action="" method="post">
+		<form action="payroll-benefit-registration-insert.do" method="post">
 			<label for="ano">수당코드: </label> 
 			<input type="text" name="ano" required /><br>
 			<label for="aname">수당명: </label>
@@ -25,6 +25,8 @@
 			<input type="text" name="arate" required /><br>
 			<label for="aamount">금액: </label>
 			<input type="text" name="aamount" required /><br>
+			<label for="overtime">초과근무여부: </label>
+			<input type="text" name="overtime" required /><br>
 			<input type="submit" value="등록"/>
 		</form>
 		<br><br>
@@ -41,10 +43,12 @@
 								<th>수당명</th>
 								<th>수당비율</th>
 								<th>금액</th>
+								<th>추가근무여부</th>
 							</tr>
 						</thead>
 		            	<tbody>
 							<tr class="alert" role="alert">
+								<td><br></td>
 								<td><br></td>
 								<td><br></td>
 								<td><br></td>
